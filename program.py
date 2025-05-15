@@ -45,10 +45,9 @@ def CreateIndex(Dir, StopList):
     return inverted_index, doc_table
 
 index, doctable = CreateIndex("documents", "stoplist.txt")
-print("Inverted Index:")
+print("TermTable:")
 print(index)
 print("\nDocTable:")
 print(doctable)
-
 #Start Câu a
 print("End Câu a!")
