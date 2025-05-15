@@ -1,6 +1,8 @@
 import os
 import string
 
+#Start Câu a
+print("Start Câu a:")
 def load_stopwords(stoplist_path):
     with open(stoplist_path, 'r', encoding='utf-8') as f:
         return set(word.strip().lower() for word in f.readlines())
@@ -47,3 +49,6 @@ print("Inverted Index:")
 print(index)
 print("\nDocTable:")
 print(doctable)
+
+#Start Câu a
+print("End Câu a!")
