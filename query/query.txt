@@ -1,0 +1,6 @@
+clever 5
+cloud 3
+climbs 4
+cat 2
+couch 3
+cold 8

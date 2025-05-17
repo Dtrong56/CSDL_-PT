@@ -1,5 +1,6 @@
 import os
 import string
+import math
 
 #Start Câu a
 print("Start Câu a:")
@@ -51,3 +52,47 @@ print("\nDocTable:")
 print(doctable)
 #Start Câu a
 print("End Câu a!")
+
+
+#Start Câu c
+print("\nStart Câu c:")
+def calculate_idf(word, index, doc_table):
+    total_docs = len(doc_table)
+    docs_with_term = len(index[word])
+    return math.log(total_docs / docs_with_term) if docs_with_term > 0 else 0
+
+def Find(WordFile, N, index, doc_table):
+    # Read query terms from file
+    query_terms = {}
+    with open(WordFile, 'r', encoding='utf-8') as file:
+        for line in file:
+            word, weight = line.strip().split()
+            query_terms[word.lower()] = int(weight)
+    
+    # Calculate scores for each document
+    doc_scores = {}
+    for word, weight in query_terms.items():
+        if word in index:
+            for doc_name, tf in index[word].items():
+                idf = calculate_idf(word, index, doc_table)
+                score = tf * idf * weight
+                
+                if doc_name not in doc_scores:
+                    doc_scores[doc_name] = 0
+                doc_scores[doc_name] += score
+    
+    # Sort and get top N documents
+    sorted_docs = sorted(doc_scores.items(), 
+                        key=lambda x: x[1], 
+                        reverse=True)[:N]
+    
+    return sorted_docs
+
+# Test the function
+wordfile_path = "query/query.txt"  # Updated path to query.txt in documents folder
+N = 3  # Number of top documents to return
+results = Find(wordfile_path, N, index, doctable)
+print(f"\nTop {N} matching documents:")
+for doc, score in results:
+    print(f"Document: {doc}, Score: {score:.2f}")
+print("End Câu c!")

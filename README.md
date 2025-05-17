@@ -71,3 +71,59 @@ Câu a -Nguyễn Thành Long N21DCCN143:
             'cover': {'doc1.txt': 1},
             'cold': {'doc1.txt': 1}
             }
+
+Câu c -Vũ Đức Trọng N21DCCN190:
+    Viết hàm Find(WordFile, N):
+
+        Đọc file WordFile chứa các cặp (từ khóa, trọng số).
+
+        Với mỗi từ khóa trong file:
+            - Tìm trong TermTable các documents chứa từ khóa
+            - Tính điểm cho mỗi document dựa trên:
+                + tf (term frequency): số lần từ xuất hiện trong document
+                + idf (inverse document frequency): độ quan trọng của từ
+                + weight: trọng số của từ (từ WordFile)
+            - Cộng dồn điểm cho mỗi document
+
+        Trả về N documents có tổng điểm cao nhất.
+
+    Input:
+        WordFile: file chứa các cặp (word weight) mỗi dòng
+        N: số lượng documents cần trả về
+        
+    Output:
+        List of top N documents sorted by total relevance score
+        Mỗi kết quả gồm: document name và total score
+
+    Ví dụ:
+        Input WordFile (query.txt):
+            clever 5
+            cloud 3
+            climbs 4
+            cat 2
+            couch 3
+            cold 8
+
+        Input documents:
+            doc1.txt:
+                The clever cat climbs up the tree.
+                It's getting cold outside today.
+                The cat sits on the couch in the living room.
+                Looking at the cloud in the sky.
+
+            doc2.txt:
+                The weather is cold and cloudy.
+                My cat is very clever.
+                She climbs the couch every day.
+                The clouds look beautiful.
+
+            doc3.txt:
+                It's too cold to go outside.
+                The clever fox climbs the fence.
+                White clouds in the sky.
+                The dog sleeps on the couch.
+
+        Output (với N=3): 
+            Document: doc2.txt, Score: 45.82
+            Document: doc1.txt, Score: 38.45
+            Document: doc3.txt, Score: 32.91
