@@ -53,6 +53,38 @@ print(doctable)
 #Start Câu a
 print("End Câu a!")
 
+#Start Câu b
+print("\nStart Câu b:")
+def calculate_idf(word, index, doc_table):
+    total_docs = len(doc_table)
+    docs_with_term = len(index[word])
+    return math.log(total_docs / docs_with_term) if docs_with_term > 0 else 0
+
+def FindSingleWord(word, weight, N, index, doc_table):
+    word = word.lower()
+    if word not in index:
+        print(f"'{word}' not found in the index.")
+        return []
+
+    scores = {}
+    idf = calculate_idf(word, index, doc_table)
+
+    for doc_name, tf in index[word].items():
+        score = tf * weight * idf
+        scores[doc_name] = score
+
+    top_docs = sorted(scores.items(), key=lambda x: x[1], reverse=True)[:N]
+
+    print(f"Top {N} documents for word '{word}' (weight={weight}):")
+    for doc, score in top_docs:
+        print(f"  {doc}: {score:.4f}")
+
+    return top_docs
+
+# Ví dụ chạy thử câu b:
+FindSingleWord("cat", 2, 3, index, doctable)
+print("End Câu b!")
+
 
 #Start Câu c
 print("\nStart Câu c:")

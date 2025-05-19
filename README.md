@@ -72,6 +72,42 @@ Câu a -Nguyễn Thành Long N21DCCN143:
             'cold': {'doc1.txt': 1}
             }
 
+Câu b -Thạch Thị Nhanh N21DCCN159:
+    Viết hàm FindSingleWord(word, weight, N):
+
+        - Nhận vào một từ khóa (word), trọng số (weight), và số lượng tài liệu cần tìm (N).
+        - Dựa trên TermTable và DocTable từ câu a.
+        - Tính điểm cho từng tài liệu chứa từ đó bằng công thức:
+
+            score = tf * weight * idf
+
+            Trong đó:
+                + tf: số lần từ khóa xuất hiện trong tài liệu.
+                + idf: log(tổng số tài liệu / số tài liệu chứa từ khóa đó).
+                + weight: trọng số nhập vào.
+
+        - Sắp xếp danh sách tài liệu theo điểm số giảm dần.
+        - Trả về N tài liệu có điểm cao nhất.
+
+    Input:
+        word: từ khóa tìm kiếm, ví dụ "cat".
+        weight: trọng số do người dùng nhập, ví dụ 2.
+        N: số lượng tài liệu cần trả về, ví dụ 3.
+
+    Output:
+        Danh sách N tài liệu có điểm cao nhất, mỗi kết quả gồm:
+            - Tên tài liệu
+            - Điểm số tương ứng
+
+    Ví dụ:
+        FindSingleWord("cat", 2, 3, index, doctable)
+
+        Output:
+            Top 3 documents for word 'cat' (weight=2):
+                doc4.txt: 0.8926
+                doc1.txt: 0.4463
+                doc2.txt: 0.4463
+
 Câu c -Vũ Đức Trọng N21DCCN190:
     Viết hàm Find(WordFile, N):
 
