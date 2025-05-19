@@ -106,9 +106,9 @@ def Find(WordFile, N):
     # Calculate scores for each document
     doc_scores = {}
     for word, weight in query_terms.items():
-        if word in index:
+        if word in index:  # using global index
             for doc_name, tf in index[word].items():
-                idf = calculate_idf(word, index, doc_table)
+                idf = calculate_idf(word, index, doctable)  # using global doctable
                 score = tf * idf * weight
                 
                 if doc_name not in doc_scores:
@@ -116,17 +116,12 @@ def Find(WordFile, N):
                 doc_scores[doc_name] += score
     
     # Sort and get top N documents
-    sorted_docs = sorted(doc_scores.items(), 
-                        key=lambda x: x[1], 
-                        reverse=True)[:N]
-    
-    return sorted_docs
+    return sorted(doc_scores.items(), key=lambda x: x[1], reverse=True)[:N]
 
 # Test the function
-wordfile_path = "query/query.txt"  # Updated path to query.txt in documents folder
-N = 3  # Number of top documents to return
-# Sửa lại cách gọi hàm
-results = Find(wordfile_path, N)  # Bỏ 2 tham số index và doctable
+wordfile_path = "query/query.txt"  # Đường dẫn đến file query
+N = 3  # Số lượng document cần trả về
+results = Find(wordfile_path, N)
 print(f"\nTop {N} matching documents:")
 for doc, score in results:
     print(f"Document: {doc}, Score: {score:.2f}")
