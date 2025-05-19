@@ -117,8 +117,9 @@ Câu c -Vũ Đức Trọng N21DCCN190:
             - Tìm trong TermTable các documents chứa từ khóa
             - Tính điểm cho mỗi document dựa trên:
                 + tf (term frequency): số lần từ xuất hiện trong document
-                + idf (inverse document frequency): độ quan trọng của từ
+                + idf (inverse document frequency): log(tổng số tài liệu / số tài liệu chứa từ khóa đó)
                 + weight: trọng số của từ (từ WordFile)
+                + score = tf * idf * weight
             - Cộng dồn điểm cho mỗi document
 
         Trả về N documents có tổng điểm cao nhất.
@@ -131,6 +132,10 @@ Câu c -Vũ Đức Trọng N21DCCN190:
         List of top N documents sorted by total relevance score
         Mỗi kết quả gồm: document name và total score
 
+    Lưu ý: 
+        - Hàm sử dụng biến toàn cục index và doctable từ câu a
+        - Các từ trong WordFile được chuyển về chữ thường trước khi tìm kiếm
+
     Ví dụ:
         Input WordFile (query.txt):
             clever 5
@@ -140,24 +145,8 @@ Câu c -Vũ Đức Trọng N21DCCN190:
             couch 3
             cold 8
 
-        Input documents:
-            doc1.txt:
-                The clever cat climbs up the tree.
-                It's getting cold outside today.
-                The cat sits on the couch in the living room.
-                Looking at the cloud in the sky.
-
-            doc2.txt:
-                The weather is cold and cloudy.
-                My cat is very clever.
-                She climbs the couch every day.
-                The clouds look beautiful.
-
-            doc3.txt:
-                It's too cold to go outside.
-                The clever fox climbs the fence.
-                White clouds in the sky.
-                The dog sleeps on the couch.
+        Input documents: (giữ nguyên phần ví dụ cũ)
+            ...
 
         Output (với N=3): 
             Document: doc2.txt, Score: 45.82

@@ -93,7 +93,7 @@ def calculate_idf(word, index, doc_table):
     docs_with_term = len(index[word])
     return math.log(total_docs / docs_with_term) if docs_with_term > 0 else 0
 
-def Find(WordFile, N, index, doc_table):
+def Find(WordFile, N):
     # Read query terms from file
     query_terms = {}
     with open(WordFile, 'r', encoding='utf-8') as file:
@@ -123,7 +123,8 @@ def Find(WordFile, N, index, doc_table):
 # Test the function
 wordfile_path = "query/query.txt"  # Updated path to query.txt in documents folder
 N = 3  # Number of top documents to return
-results = Find(wordfile_path, N, index, doctable)
+# Sửa lại cách gọi hàm
+results = Find(wordfile_path, N)  # Bỏ 2 tham số index và doctable
 print(f"\nTop {N} matching documents:")
 for doc, score in results:
     print(f"Document: {doc}, Score: {score:.2f}")
