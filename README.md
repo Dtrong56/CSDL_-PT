@@ -147,9 +147,9 @@ TermTable:
 - Tính điểm cho từng tài liệu chứa từ đó bằng công thức: score = tf * Weight * idf
 
 - Trong đó:
-**tf: số lần từ khóa xuất hiện trong tài liệu.**
-**idf: log(tổng số tài liệu / số tài liệu chứa từ khóa đó).**
-**Weight: trọng số nhập vào.**
+    tf: số lần từ khóa xuất hiện trong tài liệu.
+    idf: log(tổng số tài liệu / số tài liệu chứa từ khóa đó).
+    Weight: trọng số nhập vào.
 
 - Sắp xếp danh sách tài liệu theo điểm số giảm dần.
 - Trả về N tài liệu có điểm cao nhất.
@@ -177,7 +177,7 @@ Top 3 documents for word 'cat' (weight=2):
 ```
 
 ## Câu c -Vũ Đức Trọng N21DCCN190:
-    Viết hàm Find(WordFile, N):
+* Viết hàm Find(WordFile, N):
 
         Đọc file WordFile chứa các cặp (từ khóa, trọng số).
 
@@ -192,31 +192,34 @@ Top 3 documents for word 'cat' (weight=2):
 
         Trả về N documents có tổng điểm cao nhất.
 
-    Input:
+    ### Input:
         WordFile: file chứa các cặp (word weight) mỗi dòng
         N: số lượng documents cần trả về
         
-    Output:
+    ### Output:
         List of top N documents sorted by total relevance score
         Mỗi kết quả gồm: document name và total score
 
-    Lưu ý: 
+    ### Lưu ý: 
         - Hàm sử dụng biến toàn cục index và doctable từ câu a
         - Các từ trong WordFile được chuyển về chữ thường trước khi tìm kiếm
 
-    Ví dụ:
+    ### Ví dụ:
         Input WordFile (query.txt):
+        ```
             clever 5
             cloud 3
             climbs 4
             cat 2
             couch 3
             cold 8
-
+        ```
         Input documents: (giữ nguyên phần ví dụ cũ)
             ...
 
         Output (với N=3): 
+        ```
             Document: doc4.txt, Score: 8.10
             Document: doc2.txt, Score: 5.20
             Document: doc5.txt, Score: 4.91
+        ```
