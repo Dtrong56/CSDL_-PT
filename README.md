@@ -85,26 +85,36 @@ a
 with
 ```
 **File doc1.txt gồm:**
+```
 The cat is sleeping on the couch.
 Clouds cover the sky and it is cold.
+```
 **File doc2.txt gồm:**
+```
 A clever cat climbs carefully.
 The cloud is moving fast.
+```
 **File doc3.txt gồm:**
+```
 It's too cold to go outside.
 The clever fox climbs the fence.
 White clouds in the sky.
 The dog sleeps on the couch.
+```
 **File doc4.txt gồm:**
+```
 The clever cat climbs up the tree.
 It's getting cold outside today.
 The cat sits on the couch in the living room.
 Looking at the cloud in the sky.
+```
 **File doc5.txt gồm:**
+```
 The weather is cold and cloudy.
 My cat is very clever.
 She climbs the couch every day.
 The clouds look beautiful.
+```
 ### Output:
 ```python
 DocTable:
@@ -137,9 +147,9 @@ TermTable:
 - Tính điểm cho từng tài liệu chứa từ đó bằng công thức: score = tf * Weight * idf
 
 - Trong đó:
-+ tf: số lần từ khóa xuất hiện trong tài liệu.
-+ idf: log(tổng số tài liệu / số tài liệu chứa từ khóa đó).
-+ Weight: trọng số nhập vào.
+**tf: số lần từ khóa xuất hiện trong tài liệu.**
+**idf: log(tổng số tài liệu / số tài liệu chứa từ khóa đó).**
+**Weight: trọng số nhập vào.**
 
 - Sắp xếp danh sách tài liệu theo điểm số giảm dần.
 - Trả về N tài liệu có điểm cao nhất.
@@ -151,9 +161,8 @@ TermTable:
 
 ### Output:
 * Danh sách N tài liệu có điểm cao nhất, mỗi kết quả gồm:
-- Tên tài liệu
-- Điểm số tương ứng
-
+**Tên tài liệu**
+**Điểm số tương ứng**
 ### Ví dụ:
 ```python
         Find("cat", 2, 3)
