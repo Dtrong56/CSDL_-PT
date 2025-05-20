@@ -1,14 +1,32 @@
 # CSDL_-PT-GK
 Sinh viên thực hiện:
-Nguyễn Thành Long	N21DCCN143     Câu a
-Thạch Thị Nhanh	    N21DCCN159     Câu b
-Vũ Đức Trọng	    N21DCCN190     Câu c
-Lê Anh Tình	        N21DCCN189???
 
-Hướng dẫn cài đặt: git clone...
-Hướng dẫn chạy chương trình: chạy program.py
+Nguyễn Thành Long  Github: Pakamon234	N21DCCN143     Câu a
+
+Thạch Thị Nhanh	   Github: LyThach      N21DCCN159     Câu b
+
+Vũ Đức Trọng	  Github:  Dtrong56     N21DCCN190     Câu c
+
+Hướng dẫn cài đặt: 
+
+    Bước 1: 
+        
+        Tải Python tại: https://www.python.org/downloads/
+
+        Đảm bảo thêm Python vào PATH khi cài đặt
+
+    Bước 2:
+
+        git clone https://github.com/Dtrong56/CSDL_-PT.git
+        cd CSDL_-PT
+
+
+Hướng dẫn chạy chương trình: 
+
+python program.py
 
 Project cuối EX6
+
 Đề :
 5. As a project, write a program that implements inverted indexes. Your program must contain the following routines:
 (a) CreateIndex(Dir, StopList) takes a directory name and a file called StopList (in that directory) as input. It returns an inverted index as output. The DocTable includes all files in the directory Dir, except for the StopList file. The TermTable includes only all words occurring in the directory that start with the letter C (lower- or uppercase).
@@ -39,7 +57,10 @@ Câu a -Nguyễn Thành Long N21DCCN143:
                 documents/
                 ├── stoplist.txt
                 ├── doc1.txt
-                └── doc2.txt
+                ├── doc2.txt
+                ├── doc3.txt
+                ├── doc4.txt
+                └── doc5.txt
             Input stoplist.txt gồm:
                 is
                 the
@@ -50,26 +71,43 @@ Câu a -Nguyễn Thành Long N21DCCN143:
             File doc1.txt gồm:
                 The cat is sleeping on the couch.
                 Clouds cover the sky and it is cold.
-            FIle doc2.txt gồm:
+            File doc2.txt gồm:
                 A clever cat climbs carefully.
                 The cloud is moving fast.
+            File doc3.txt gồm:
+                It's too cold to go outside.
+                The clever fox climbs the fence.
+                White clouds in the sky.
+                The dog sleeps on the couch.
+            File doc4.txt gồm:
+                The clever cat climbs up the tree.
+                It's getting cold outside today.
+                The cat sits on the couch in the living room.
+                Looking at the cloud in the sky.
+            File doc5.txt gồm:
+                The weather is cold and cloudy.
+                My cat is very clever.
+                She climbs the couch every day.
+                The clouds look beautiful.
         Output: 
             DocTable:
             {
                 0: "doc1.txt",
-                1: "doc2.txt"
+                1: "doc2.txt",
+                2: "doc3.txt",
+                3: "doc4.txt",
+                4: "doc5.txt",
             }
             TermTable:
-            {
-            'cat': {'doc1.txt': 1, 'doc2.txt': 1},
-            'couch': {'doc1.txt': 1},
-            'clouds': {'doc1.txt': 1},
-            'cloud': {'doc2.txt': 1},
-            'clever': {'doc2.txt': 1},
-            'climbs': {'doc2.txt': 1},
-            'carefully': {'doc2.txt': 1},
-            'cover': {'doc1.txt': 1},
-            'cold': {'doc1.txt': 1}
+            {'cat': {'doc1.txt': 1, 'doc2.txt': 1, 'doc4.txt': 2, 'doc5.txt': 1}, 
+            'couch': {'doc1.txt': 1, 'doc3.txt': 1, 'doc4.txt': 1, 'doc5.txt': 1}, 
+            'clouds': {'doc1.txt': 1, 'doc3.txt': 1, 'doc5.txt': 1}, 
+            'cover': {'doc1.txt': 1}, 
+            'cold': {'doc1.txt': 1, 'doc3.txt': 1, 'doc4.txt': 1, 'doc5.txt': 1}, 
+            'clever': {'doc2.txt': 1, 'doc3.txt': 1, 'doc4.txt': 1, 'doc5.txt': 1}, 
+            'climbs': {'doc2.txt': 1, 'doc3.txt': 1, 'doc4.txt': 1, 'doc5.txt': 1}, 
+            'carefully': {'doc2.txt': 1}, 'cloud': {'doc2.txt': 1, 'doc4.txt': 1}, 
+            'cloudy': {'doc5.txt': 1}
             }
 
 Câu b -Thạch Thị Nhanh N21DCCN159:
@@ -150,6 +188,6 @@ Câu c -Vũ Đức Trọng N21DCCN190:
             ...
 
         Output (với N=3): 
-            Document: doc2.txt, Score: 45.82
-            Document: doc1.txt, Score: 38.45
-            Document: doc3.txt, Score: 32.91
+            Document: doc4.txt, Score: 8.10
+            Document: doc2.txt, Score: 5.20
+            Document: doc5.txt, Score: 4.91
